@@ -49,7 +49,8 @@ app.use(_bodyParser.default.json()); // app.use((req, res, next)=>{
 //   next();  
 // }); 
 
-MongoClient.connect(mongoURL, { useUnifiedTopology: true }, function (err, db) {
+
+MongoClient.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, db) {
   if (err) throw err;
   var db = db.db("mydb1");  // database name
   console.log("Mongodb connected successfully");
@@ -133,6 +134,12 @@ MongoClient.connect(mongoURL, { useUnifiedTopology: true }, function (err, db) {
         res.status(200).send(results);
     });
 });
+
+  db.collection("treeStructure").updateMany({ indicator: 'oldValue' }, { $set: { indicator: 'newValue' } }, (err, result) => {
+    if (err) throw err;
+    console.log("Daten erfolgreich aktualisiert");
+    MongoClient(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true }).close();
+  });
 
 
   /////////////Instruction for data addition/////////////////
@@ -250,9 +257,9 @@ router.route('/edit/data').post((req, res) => {
   
 });
 
-app.route('/openlair/save-changes', (req, res) => {
-  const changedData = req.body;
-  res.json({ message: 'Daten erfolgreich gespeichert' });
+
+router.route('/save-changes', (req, res) => {
+  
 });
 
 

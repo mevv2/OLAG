@@ -66,7 +66,6 @@ export class EditDataComponent implements OnInit {
       const changedData = {
         oldValue: event.oldValue,
         newValue: event.newValue,
-        // ... andere relevante Daten
       };
   
       this.dataService.saveChangedData(changedData).subscribe(response => {

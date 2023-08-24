@@ -63,8 +63,8 @@ export class DataService {
     return this.http.post(`${this.uri}/add/data`, data1);
   }
 
-  saveChangedData(data: any) {
-    return this.http.post(`${this.uri}/save-changes`, data);
+  saveChangedData(data2: any) {
+    return this.http.post(`${this.uri}/save-changes`, data2);
   }
 
   //public get currentUserValue(): User {
