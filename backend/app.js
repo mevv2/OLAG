@@ -250,6 +250,12 @@ router.route('/edit/data').post((req, res) => {
   
 });
 
+app.route('/openlair/save-changes', (req, res) => {
+  const changedData = req.body;
+  res.json({ message: 'Daten erfolgreich gespeichert' });
+});
+
+
 
 
 app.get("/" + BASE_ROUTE, (req, res) => res.send('HELLO! From Backend'));

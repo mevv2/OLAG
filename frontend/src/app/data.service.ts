@@ -30,9 +30,7 @@ export class DataService {
   getgriddata(): Observable<any> {
     return this.http.get(this.uri);
   }
-
-
-
+  
   getsearchresult(search: any) {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -63,8 +61,10 @@ export class DataService {
     };
     console.log("addData:", data1);
     return this.http.post(`${this.uri}/add/data`, data1);
+  }
 
-
+  saveChangedData(data: any) {
+    return this.http.post(`${this.uri}/save-changes`, data);
   }
 
   //public get currentUserValue(): User {

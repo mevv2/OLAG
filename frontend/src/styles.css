@@ -19,6 +19,10 @@
   margin: 0 auto;  
 }
 
+.ag-row-selected {
+  background-color: rgb(204, 204, 240) !important;
+}
+
 html,
 body {
   height: 100%;
